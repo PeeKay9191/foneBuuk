@@ -15,8 +15,8 @@ export default function SignoutButton({}: Props) {
     }
   };
   return (
-    <Button className="w-full" onClick={handleLogout}>
+    <button className="w-full" onClick={handleLogout}>
       Logout
-    </Button>
+    </button>
   );
 }

@@ -24,6 +24,7 @@ import { db } from "@/lib/supabase";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Loader2 } from "lucide-react";
+import { toast } from "sonner";
 
 const formSchema = z.object({
   email: z.string().min(2, {
@@ -55,19 +56,20 @@ export function LoginForm() {
       });
 
       if (!error && user) {
+        toast.success("Login Successful!");
         router.push("/dashboard");
         setIsLoading(false);
       }
     } catch (error) {
       if (error instanceof Error) {
-        throw new Error(error.message);
+        toast.error("Login unsuccessful, please try again!");
       }
     } finally {
       setIsLoading(false);
     }
   }
   return (
-    <Card className="mx-auto max-w-sm">
+    <Card className="mx-auto w-[400px]">
       <CardHeader>
         <CardTitle className="text-2xl">Login</CardTitle>
         <CardDescription>

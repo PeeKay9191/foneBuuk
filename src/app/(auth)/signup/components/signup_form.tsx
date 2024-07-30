@@ -27,6 +27,7 @@ import { db } from "@/lib/supabase";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Loader2 } from "lucide-react";
+import { toast } from "sonner";
 
 const formSchema = z.object({
   full_name: z.string().min(2, {
@@ -67,13 +68,13 @@ export default function SignupForm() {
       });
 
       if (!error) {
-        console.log(user);
-        // redirect to login
+        toast.success("Account created successfully!");
         router.push("/");
         setIsLoading(false);
       }
     } catch (error) {
       if (error instanceof Error) {
+        toast.error("There's an error creating an account!");
         throw new Error(error.message);
       }
     } finally {
@@ -81,7 +82,7 @@ export default function SignupForm() {
     }
   }
   return (
-    <Card className="mx-auto max-w-sm">
+    <Card className="mx-auto w-[450px]">
       <CardHeader>
         <CardTitle className="text-2xl">Sign Up</CardTitle>
         <CardDescription>
