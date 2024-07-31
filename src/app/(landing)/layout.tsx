@@ -7,7 +7,7 @@ export default function LandingLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <main>
+    <main className="p-8">
       <Navbar />
       {children}
       <Footer />
