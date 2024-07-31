@@ -1,4 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-  
+
+.lines {
+  @apply w-1/3 opacity-30 border-x border-dashed border-x-neutral-300 dark:border-x-neutral-500;
+}

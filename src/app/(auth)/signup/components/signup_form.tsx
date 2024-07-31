@@ -69,7 +69,7 @@ export default function SignupForm() {
 
       if (!error) {
         toast.success("Account created successfully!");
-        router.push("/");
+        router.push("/sign-in");
         setIsLoading(false);
       }
     } catch (error) {
@@ -175,7 +175,7 @@ export default function SignupForm() {
               </Button>
               <div className="text-center text-sm">
                 Already have an account?{" "}
-                <Link href="/" className="underline">
+                <Link href="/sign-in" className="underline">
                   Sign in
                 </Link>
               </div>
