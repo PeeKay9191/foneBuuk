@@ -56,13 +56,24 @@ export function LoginForm() {
       });
 
       if (!error && user) {
-        toast.success("Login Successful!");
+        toast.success("Login Successful!", {
+          description: "You will be redirected to your dashboard.",
+        });
         router.push("/dashboard");
         setIsLoading(false);
       }
+      if (error) {
+        toast.error("Error logging in", {
+          description: error.message,
+        });
+        return;
+      }
     } catch (error) {
       if (error instanceof Error) {
-        toast.error("Login unsuccessful, please try again!");
+        toast.error("Internal Server Error!", {
+          description: error.message,
+        });
+        return;
       }
     } finally {
       setIsLoading(false);

@@ -72,6 +72,14 @@ export default function SignupForm() {
         router.push("/sign-in");
         setIsLoading(false);
       }
+
+      if (error) {
+        toast.error("Account creation was unsuccessful", {
+          description: error.message,
+        });
+
+        return;
+      }
     } catch (error) {
       if (error instanceof Error) {
         toast.error("There's an error creating an account!");
