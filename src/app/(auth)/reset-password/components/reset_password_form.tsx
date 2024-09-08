@@ -78,7 +78,7 @@ export default function ResetPasswordForm() {
       }
 
       if (data) {
-        toast.success("Password reset successfully!");
+        toast.success("Password reset successfully");
         router.push("/sign-in");
       }
       setIsPending(false);
